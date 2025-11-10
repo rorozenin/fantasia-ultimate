@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fantasia Ultimate AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="splash" class="screen">
+    <h1>✨ Fantasia Ultimate AI ✨</h1>
+    <p class="sub">Crie e converse com personagens com voz — 100% offline</p>
+    <button id="startBtn">Entrar</button>
+  </div>
+
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <div class="brand">Fantasia Ultimate AI</div>
+      <div class="controls">
+        <select id="langSelect" title="Idioma">
+          <option value="pt-BR">Português (BR)</option>
+          <option value="en-US">English</option>
+          <option value="ja-JP">日本語</option>
+        </select>
+        <span id="userLabel">Convidado</span>
+        <button id="logoutBtn" class="ghost">Sair</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="create">Criar</button>
+      <button class="tab" data-tab="gallery">Galera</button>
+      <button class="tab locked" data-tab="chat">Chat</button>
+      <button class="tab" data-tab="profile">Perfil</button>
+    </nav>
+
+    <main class="main">
+      <section id="create" class="panel active">
+        <h2>Criar Personagem</h2>
+        <div class="form">
+          <input id="username" placeholder="Seu nome (para salvar)" />
+          <div class="row">
+            <input id="charName" placeholder="Nome do personagem" />
+            <select id="charGender">
+              <option value="female">Feminino</option>
+              <option value="male">Masculino</option>
+              <option value="nonbinary">Não-binário</option>
+              <option value="random">Aleatório</option>
+            </select>
+          </div>
+          <textarea id="charDesc" placeholder="Descreva seu personagem (ex: olhar frio, fala pouco, poeta)"></textarea>
+          <div class="row">
+            <select id="charStyle">
+              <option value="auto">Auto (derivar da descrição)</option>
+              <option value="fofo">Fofo</option>
+              <option value="romântico">Romântico</option>
+              <option value="engraçado">Engraçado</option>
+              <option value="frio">Frio</option>
+              <option value="misterioso">Misterioso</option>
+              <option value="possessivo">Possessivo</option>
+            </select>
+            <select id="charEmotion">
+              <option value="neutro">Neutro</option>
+              <option value="feliz">Feliz</option>
+              <option value="tímido">Tímido</option>
+              <option value="melancólico">Melancólico</option>
+            </select>
+          </div>
+          <div class="row">
+            <input id="avatarUpload" type="file" accept="image/*" />
+            <button id="genAutoAvatar" class="ghost">Gerar avatar automático</button>
+          </div>
+          <div class="preview" id="previewArea"></div>
+          <div class="row">
+            <button id="createBtn" class="primary">Criar e Usar</button>
+            <button id="randomBtn" class="ghost">Gerar Aleatório</button>
+            <button id="clearBtn" class="ghost">Resetar</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="panel">
+        <h2>Galeria — Personagens prontos</h2>
+        <div id="galleryList" class="list"></div>
+      </section>
+
+      <section id="chat" class="panel">
+        <div id="chatHeader" class="chat-header">
+          <div id="avatarMini" class="avatar-mini"></div>
+          <div>
+            <div id="chatName" class="chat-name">Personagem</div>
+            <div id="chatMeta" class="muted">estilo • emoção</div>
+          </div>
+          <div class="chat-controls">
+            <button id="ttsToggle" class="ghost">🔊</button>
+            <button id="exportLog" class="ghost">📥 Exportar</button>
+          </div>
+        </div>
+
+        <div id="chatWallpaper" class="chat-wallpaper"></div>
+        <div id="chatBox" class="chat-box" role="log" aria-live="polite"></div>
+
+        <div class="composer">
+          <input id="userInput" placeholder="Escreva sua mensagem..." />
+          <button id="sendBtn" class="primary">Enviar</button>
+        </div>
+      </section>
+
+      <section id="profile" class="panel">
+        <h2>Perfil</h2>
+        <div id="profileArea"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="charCardTpl">
+    <div class="char-card">
+      <div class="char-avatar"></div>
+      <div class="char-info">
+        <div class="char-name"></div>
+        <div class="muted char-meta"></div>
+      </div>
+      <div class="char-actions">
+        <button class="useBtn">Usar</button>
+        <button class="editBtn">Editar</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="avatarGen.js"></script>
+  <script src="miniAI.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

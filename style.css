@@ -1,0 +1,61 @@
+/* Anime Colorido theme (pastel) */
+:root{
+  --bg1: #fff8fb;
+  --bg2: #eef9ff;
+  --accent: #ff8fb1;
+  --accent2: #9ad8ff;
+  --muted: #6b6b6b;
+  --card: rgba(255,255,255,0.8);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#222}
+#splash{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#splash h1{font-size:44px;margin:0}
+#splash p.sub{margin:6px 0 18px;color:var(--muted)}
+#splash button{background:var(--accent);border:none;padding:12px 20px;border-radius:12px;color:white;cursor:pointer;font-weight:700}
+
+.hidden{display:none}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:transparent}
+.brand{font-weight:800;color:#333}
+.controls{display:flex;gap:8px;align-items:center}
+.controls select{padding:6px;border-radius:8px}
+.controls #userLabel{padding:6px 10px;background:var(--card);border-radius:12px}
+
+.tabs{display:flex;gap:8px;padding:10px 20px}
+.tab{background:var(--card);border:none;padding:10px 14px;border-radius:10px;cursor:pointer}
+.tab.active{box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.tab.locked{opacity:0.5}
+
+.main{display:flex;gap:20px;padding:20px}
+.panel{flex:1;background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.5));padding:16px;border-radius:12px;min-height:60vh}
+.panel.active{display:block}
+.panel:not(.active){display:none}
+
+.form input, .form textarea, .form select{width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-bottom:8px}
+.row{display:flex;gap:8px}
+.row .ghost{flex:1}
+.primary{background:var(--accent);color:white;border:none;padding:10px;border-radius:10px;cursor:pointer}
+.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px}
+
+.preview{display:flex;gap:12px;align-items:center;margin:8px 0}
+.preview .avatar{width:96px;height:96px;border-radius:12px;overflow:hidden;background:#fff;display:grid;place-items:center}
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.char-card{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.6)}
+.char-avatar{width:64px;height:64px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));display:grid;place-items:center;font-size:26px;color:white}
+.char-info{flex:1}
+.char-actions button{margin-left:6px}
+
+.chat-header{display:flex;align-items:center;gap:12px;padding:8px}
+.avatar-mini{width:72px;height:72px;border-radius:10px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(90deg,var(--accent),var(--accent2));font-size:30px;color:white}
+.chat-wallpaper{position:fixed;inset:80px 20px 120px 520px;background-size:cover;background-position:center;opacity:0.15;pointer-events:none;border-radius:12px}
+.chat-box{background:rgba(255,255,255,0.9);border-radius:12px;padding:12px;max-height:420px;overflow:auto}
+.message{margin:8px 0;display:flex}
+.message.user{justify-content:flex-end}
+.message .bubble{padding:10px 12px;border-radius:12px;max-width:70%}
+.message.user .bubble{background:var(--accent2);color:#014}
+.message.ai .bubble{background:var(--accent);color:white}
+
+.composer{display:flex;gap:8px;margin-top:8px}
+.composer input{flex:1;padding:10px;border-radius:10px;border:1px solid #eee}
